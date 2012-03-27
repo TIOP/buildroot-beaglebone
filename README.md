@@ -29,7 +29,7 @@ Preparing your system
 Buildroot requires several packages to be installed on the system 
 before it can work. On Ubuntu, the following apt-get line is sufficient:
 
-sudo apt-get install git-core bison flex g++ gettext texinfo libncurses5-dev
+    sudo apt-get install git-core bison flex g++ gettext texinfo libncurses5-dev
 
 Building
 --------
@@ -42,11 +42,11 @@ work in progress.
 
 To select the uclibc system, run:
 
-make beaglebone_uclibc_defconfig
+    make beaglebone_uclibc_defconfig
 
 To build everything, run:
 
-make
+    make
 
 The initial build takes a while since many packages need to be downloaded and 
 built. The downloads are cached in the dl directory. Subsequent builds are
@@ -60,26 +60,26 @@ Creating a BeagleBone MicroSD card
 The MicroSD card that comes with the BeagleBone is partitioned properly for
 the BuildRoot image. To format a new MicroSD card, the following will work:
 
-sudo sfdisk -H 255 -S 63 /dev/XXXXXX << EOF
-0,9,c,*
-,124
-EOF
+    sudo sfdisk -H 255 -S 63 /dev/XXXXXX << EOF
+    0,9,c,*
+    ,124
+    EOF
  
-sudo mkfs.vfat /dev/XXXXXX -n boot
+    sudo mkfs.vfat /dev/XXXXXX -n boot
 
 Then copy the built images to the SD Card:
 
-# Copy the bootloads and the Linux kernel
-cp MLO u-boot.img uImage /media/boot
+    # Copy the bootloaders and the Linux kernel
+    cp MLO u-boot.img uImage /media/boot
 
-# Copy the root file system (replace sdd2 with the second partition of right
-# device)
-sudo dd if=rootfs.ext2 of=/dev/sdd2 bs=128k
+    # Copy the root file system (replace sdd2 with the second partition of right
+    # device)
+    sudo dd if=rootfs.ext2 of=/dev/sdd2 bs=128k
 
 Notes
 -----
 
 Bring up the ethernet interface: 
 
-# udhcp
+    # udhcp
  
