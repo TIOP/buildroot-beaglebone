@@ -6,6 +6,23 @@ for the BeagleBone using Buildroot. The image created is minimal, boots
 quickly, is fairly small, but doesn't do much. Packages can easily be
 added using Buildroot's "make menuconfig" configuration editor. 
 
+Project status
+--------------
+
+March 26, 2012 - I'm in the process of sending the patches to add
+BeagleBone support to buildroot upstream. As a result, I've been
+negligent in keeping this project up-to-date. It works fine, but does
+not have the Linux 3.2 kernel that many people are using now on the
+BeagleBone. The patches that I am sending upstream do support Linux 3.2.
+
+If you would like a version of buildroot that supports Linux 3.2, please
+see [bbone-erlang-buildroot](https://github.com/nerves-project/bbone-erlang-buildroot).
+It is a fairly bare-bones image with the exception that the Erlang runtime
+is turned on by default. Just turn it off in "make menuconfig".
+
+I will be posting to the beagleboard email list as soon as the upstream
+buildroot project fully supports the BeagleBone.
+
 Preparing your system
 ---------------------
 
